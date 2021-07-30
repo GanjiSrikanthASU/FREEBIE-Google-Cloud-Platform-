@@ -1,0 +1,141 @@
+/*
+ * Window Frame
+ */
+
+ body {
+  --color-primary: #009579;
+  --color-primary-dark: #007f67;
+  --color-secondary: #252c6a;
+  --color-error: #cc3333;
+  --color-success: #4bb544;
+  --border-radius: 4px;
+
+  margin: 0;
+  top:50%;
+  left:50%;
+  margin-top:-50px;  
+  margin-left:-100px; 
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  /* background: url(./background.jpg); */
+  /* background-size: cover; */
+}
+
+.container {
+  width: 400px;
+  max-width: 400px;
+  margin: 1rem;
+  padding: 2rem;
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+  border-radius: var(--border-radius);
+  background: #ffffff;
+}
+
+
+.container,
+.input-name,
+.form-submit {
+    font: 500 1rem 'Quicksand', sans-serif;
+}
+
+/* .browser {
+  background: var(--light-green);
+  border: 2px solid #f1f1f1;
+  border-radius: 5px;
+  color: #fff;
+  filter: drop-shadow(0 4px 4px #00000040);
+  margin: 6%;
+  min-width: 70%;
+  padding: 1rem;
+}
+
+
+.content {
+  padding: 10%;
+  padding-top: 2%;
+  text-align: center;
+} */
+
+/*
+ * Form
+ */
+
+
+#colleges-input-form,
+input[type=text],
+input[type=email],
+input[type=password],
+select {
+  background: #ffffff54;
+  border: 1px solid #ccc;
+  box-sizing: border-box;
+  border-radius: 10px;
+  display: block;
+  padding: 12px 20px;
+  margin: 1rem 0;
+  width: 100%;
+}
+
+
+.input-name {
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  box-sizing: border-box;
+  border-radius: var(--border-radius);
+  border: 1px solid #dddddd;
+  outline: none;
+  background: #eeeeee;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.input-name:focus {
+  border-color: var(--color-primary);
+  background: #ffffff;
+}
+
+.form-submit {
+  width: 100%;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  color: #ffffff;
+  border: none;
+  border-radius: var(--border-radius);
+  outline: none;
+  cursor: pointer;
+  background: var(--color-primary);
+}
+
+
+.form__submit:hover {
+  background: var(--color-primary-dark);
+}
+
+.form__submit:active {
+  transform: scale(0.98);
+}
+
+/* button:hover {
+  background-color: var(--dark-maroon);
+  border: none;
+} */
+
+#form-submitted {
+  background: #fff;
+  border-radius: 15px;
+  box-shadow: 0 1px 10px grey, 0 -1px 10px grey;
+  color: #000;
+  display: none;
+  left: 25%;
+  overflow: auto;
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  transform: translate(0, -50%);
+  width: 50%;
+  z-index: 1;
+}

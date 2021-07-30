@@ -1,0 +1,88 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>find events</title>
+    <link rel="icon" href="../static/Freebie.png" type="image/x-icon">
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/mainStyle.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/feedStyle10.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- js -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="{% static '/js/mainScript.js' %}"></script>
+    <script src="{% static '/js/studentScript.js' %}"></script>
+  </head>
+  <body>
+    <!-- nav bar -->
+    <header>
+      <div class="logo"><a href="/">FREEBIE</a></div>
+      <ul class="nav">
+        
+        <li class="navlink"><a> Hello {{user}}</a></li>
+        <li class="navlink"><a> User university is <span id="clg" val={{clg}}>{{clg}}</span></a></li>
+        <li class="navlink"><a href="subscribe">Subscribe</a></li>
+        <li class="navlink"><a href="../">Log out</a></li>
+        
+      </ul>
+      <div class="burger">
+        <i class="fas fa-bars"></i>
+      </div>
+    </header>
+
+    <!-- main content -->
+    <div id="col-container">
+      <h1 id="find-events-title" tabindex="0">Find Food and Events</h1>
+
+      <!-- map legend -->
+      <div id="map-legend-container">
+        <div id="map-legend">
+          <div class="map-legend-entry">
+            <img src="../static/svg/redmarker.svg" alt="Red map pin" class="unselectable">
+            <p class="unselectable">event started</p>
+          </div>
+          <div class="map-legend-entry">
+            <img src="../static/svg/redmarker.svg" alt="Faded red map pin" id="faded-image" class="unselectable">
+            <p class="unselectable">event half done</p>
+          </div>
+          <div class="map-legend-entry">
+            <img src="../static/svg/greymarker.svg" alt="Grey map pin" class="unselectable">
+            <p class="unselectable">future event</p>
+          </div>
+          <div class="map-legend-entry">
+            <img src="../static/svg/bluemarker.svg" alt="Round blue map marker" class="unselectable">
+            <p class="unselectable">your location</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- map and posts -->
+
+      <div id="page-container">
+        <div id="map-container">
+          <div id="map"><div id="map-info-container"></div></div>
+          <div id="map-buttons-container">
+            <button id="toggle-legend-button" type="button">legend</button>
+          </div>
+        </div>
+        <div id="all-posts">
+          <div id="all-posts-buttons">
+            <form enctype="multipart/form-data" id="searchingfood" method="get" action = "../searchfood/">
+              <input name="univ1" id="univ1" value="{{clg}}" hidden>
+              <input name="sub1" id="create-post-button" type="submit" value="Search Food Availability">
+            </form>
+            <form enctype="multipart/form-data" id="searchingevents" method="get" action = "../searchevents/">
+              <input name="univ2" id="univ2" value="{{clg}}" hidden>
+              <input name="sub2" id="create-post-event-button" type="submit" value="Search Events Availability">
+            </form>
+          </div>
+        </div>
+    
+      </div>
+    </div>
+  
+  </body>
+</html>

@@ -1,0 +1,87 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>find events</title>
+    <link rel="icon" href="../static/svg/redmarker.svg" type="image/x-icon">
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/mainStyle.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/feedStyle10.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- js -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="{% static '/js/mainScript.js' %}"></script>
+    <script src="{% static '/js/searchFood.js' %}"></script>
+  </head>
+  <body>
+    <!-- nav bar -->
+
+    
+    <header>
+        <div class="logo"><a href="/">FREEBIE</a></div>
+        <ul class="nav">
+          
+          <li class="navlink"><a> Hi {{user}}</a></li>
+          <li class="navlink"><a> studying in {{clg}}</a></li>
+          <li class="navlink"><a href="../">Log out</a></li>
+          <li class="navlink"><button type="button" onclick="goBack()">Back to Student page</button></li>
+          
+        </ul>
+        <div class="burger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+      
+     <h3 style="color:green;">&emsp;&emsp;&emsp;&emsp;&emsp;{{msg}}</h3>
+     <form enctype="multipart/form-data" id="view-posts-form" method="get" action = "../generatefoodbookingid/">
+        {% csrf_token%}
+      {% block body %}
+          {% for result in data %}
+            <table table> 
+                <tr>
+                    <td><h4>S No: </h4></td>
+                    <td><input name="sno" id="sno" value="{{result.id}}"></td>
+                </tr>
+            <tr>
+                <td><h4>Organization Name: </h4></td>
+                <td><input name="organizationName" id="organizationName" value="{{result.organizationname}}"></td>
+            </tr>
+            <tr>
+              <td><h4>University Name: </h4></td>
+              <td><input name="universityName" id="universityName" value="{{result.universityname}}"></td>
+            </tr>
+            <tr>
+                <td><h4>Campus Location: </h4></td>
+                <td><input name="location" value="{{ result.campuslocation}}"></td>
+            </tr>
+            <tr>
+                <td><h4>Type of Food: </h4></td>
+                <td><input name="typeOfFood" value="{{ result.typefood}}"></td>
+            </tr>
+            <tr>
+                <td><h4>Capacity: </h4></td>
+                <td><input name="numberOfPeopleItFeeds" value="{{ result.capacity }}"></td>
+            </tr>
+            <tr>
+                <td><h4>Description: </h4></td>
+                <td><input name="description" value = {{result.description}}></td>
+            </tr>
+            <tr>
+                <td>
+                    Book
+                    <input name="searchFoodid" id="searchFoodid" type = "submit" value="{{result.id}}">
+                </td>
+            </tr></br>
+            </table>
+            
+        
+          {% endfor %}
+      {% endblock %}
+    </form>
+
+
+</body>
+</html>>

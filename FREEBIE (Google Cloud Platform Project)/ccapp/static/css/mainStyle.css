@@ -1,0 +1,143 @@
+:root {
+  --auburn: #ce853f;
+  --dark-green: #667d51;
+  --dark-grey: #303030;
+  --dark-maroon: #955757;
+  --grey: #e5e3df;
+  --light-teal: #abcbbc;
+  --light-green: #b9c9a7;
+  --light-maroon: #a98585;
+  --modal-grey: #1b18181a;
+  --off-white: #f2f0f0;
+  --peach: #f2ddc9;
+  --tan: #e4c492;
+}
+
+html,
+body {
+  background-color: var(--off-white);
+  color: #000;
+  font-family:
+    'Roboto',
+    sans-serif;
+  font-size: 1rem;
+  margin: 0;
+  padding: 0;
+}
+
+.unselectable {
+  user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+  -webkit-user-drag: none;
+  -ms-user-select: none;
+}
+
+.no-wrap {
+  white-space: nowrap;
+}
+
+/*
+ * Loading spinner
+ */
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  margin: 10px auto;
+  border: 4px var(--off-white) solid;
+  border-top: 4px var(--dark-green) solid;
+  border-radius: 50%;
+  animation: sp-anime 1s infinite linear;
+}
+
+@keyframes sp-anime {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*
+ * Nav bar across all pages
+ */
+
+header {
+  align-items: center;
+  display: flex;
+  height: 5rem;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.logo {
+  font-size: larger;
+  letter-spacing: 1px;
+}
+
+.nav {
+  display: flex;
+  justify-content: space-around;
+  padding: 0;
+  z-index: 9999;
+}
+
+.navlink {
+  list-style: none;
+}
+
+.logo a,
+.navlink a {
+  color: #000;
+  border-radius: 5px;
+  padding: 0.7rem 0.8rem;
+  text-decoration: none;
+}
+
+.logo a:focus,
+.logo a:hover,
+.navlink a:focus,
+.navlink a:hover {
+  color: black;
+  background-color: #dfdfdf;
+  outline: none;
+}
+
+.burger {
+  display: none;
+  font-size: 1.2em;
+}
+
+@media screen and (max-width: 678px) {
+  .burger {
+    display: block;
+  }
+
+  .nav {
+    background: #a98585;
+    display: none;
+    flex-direction: column;
+    height: calc(30%);
+    justify-content: space-around;
+    margin: 0;
+    position: absolute;
+    padding: 0;
+    top: 70px;
+    transition: all 400ms;
+    width: 50%;
+  }
+
+  .navlink {
+    text-align: center;
+  }
+
+  .navlink a {
+    color: #fff;
+  }
+
+  .nav-active {
+    display: inherit;
+    right: 0;
+  }
+}

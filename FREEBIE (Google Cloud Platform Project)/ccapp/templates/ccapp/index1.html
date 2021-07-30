@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>FREEBIE</title>
+      <link rel="icon" href="{% static 'Freebie.png'%}" type="image/x-icon">
+      <!-- css -->
+      <link rel="stylesheet" type="text/css" href="{% static 'css/mainStyle.css' %}">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/indexStyle.css' %}">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+      <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+      <!-- js -->
+      <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+      <script src="{% static 'js/mainScript.js' %}"></script>
+      <script src="{% static 'js/indexScript2.js' %}"></script>
+
+    </head>
+  <body>
+    <!-- nav bar -->
+    <header>
+      <div class="logo"><a href="/">FREEBIE</a></div>
+      <div class="burger">
+          <i class="fas fa-bars"></i>
+      </div>
+    </header>
+
+    <!-- main page content -->
+    <div id="main-container">
+      <div id="slogan">
+        <div id="slogan-emoji-container">
+          <div id="slogan-container">
+            <h2 id="title-slogan" class="unselectable">find free food, anywhere</h2>
+            <div id="emoji-container">
+              <img src="{% static 'svg/bobaemoji.svg' %}" alt="Emoji of boba drink" class="emoji unselectable" id="boba-emoji">
+              <img src="{% static 'svg/burgeremoji.svg' %}" alt="Emoji of burger" class="emoji unselectable" id="burger-emoji">
+              <img src="{% static 'svg/pizzaemoji.svg' %}" alt="Emoji of pizza slice" class="emoji unselectable" id="pizza-emoji">      
+            </div>  
+          </div>
+          <p class="subtitle" class="unselectable">connecting students and club organizations across college campuses</p>        
+        </div>
+        <div class="selectdiv">
+          <input list="colleges" placeholder="Select your University" id="colleges-input" aria-label="your college">
+          <datalist name="colleges" id="colleges"></datalist>
+        </div>
+        <div class="selectdiv">
+
+              <li><a href="employee/">Employee Signin</a></li>
+              <li><a href="employeecreate/">Employee Signup</a></li>
+              <li><a href="student/">Student Signin</a></li>
+              <li><a href="studentcreate/">Student Signup</a></li>
+
+        </div>    
+      </div>
+      <div id="map-preview">
+        <div id="map"><div id="map-info-container"></div></div>
+        <p id="map-text">@ all these colleges + more!</p>
+      </div>
+    </div>
+  </body>
+</html>

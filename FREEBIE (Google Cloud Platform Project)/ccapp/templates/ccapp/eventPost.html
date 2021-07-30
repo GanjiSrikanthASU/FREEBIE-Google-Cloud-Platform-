@@ -1,0 +1,106 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>find events</title>
+    <link rel="icon" href="../static/Freebie.png" type="image/x-icon">
+    <!-- css -->
+    <link type="text/css" rel="stylesheet" href="{% static 'css/mainStyle.css' %}">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/feedStyle10.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <!-- js -->
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="{% static '/js/mainScript.js' %}"></script> 
+    <script src="{% static '/js/eventpost.js' %}"></script> 
+  </head>
+  <body>
+    <!-- nav bar -->
+
+
+    <header>
+        <div class="logo"><a href="/">FREEBIE</a></div>
+        <ul class="nav">
+          {% if user.is_authenticated %}
+          <li class="navlink"><a> Hello {{user.first_name}}</a></li>
+          <li class="navlink"><a href="../">Log out</a></li>
+          <li class="navlink"><a href="../employeepage">Back to Employee page</a></li>
+          <li class="navlink"><a href="/">Previous Posts</a></li>
+          {% endif %}
+        </ul>
+        <div class="burger">
+          <i class="fas fa-bars"></i>
+        </div>
+      </header>
+    
+    <!-- main content -->
+    <div id="col-container">
+      <h1 id="find-events-title" tabindex="0">Create food and event posts</h1>
+        <div id="all-posts">
+          <div id="all-posts-buttons">
+            <button id="create-post-button" type="button" tabindex="0" onclick="goToFoodPost()">create a post on food availability</button>
+            <button id="create-post-event-button" type="button" tabindex="0" onclick="goToEventPost()">create a post on events</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <!-- modal for event-->
+    <div id="modal-event-background">
+      <div aria-label="create a post modal" id="modal-create-post" tabindex="0">
+        <button aria-label="close modal" id="modal-event-close" tabindex="0" type="button" onclick="closeModalEvent()">&#10005;</button>
+        <h1 id="modal-title" tabindex="0">Create a Post on Event</h1>
+        <form enctype="multipart/form-data" id="modal-event-form" method="post">
+          {% csrf_token%}
+          <input aria-label="organization name" id="modal-event-name" maxlength="75" name="eventName" placeholder="event name" tabindex="0" type="text" onpaste="return false" required><br>
+
+          <span class="modal-span">
+            <p id="modal-time-text" tabindex="0">date:</p>
+            <input aria-label="month 2 digit" id="modal-event-month" max="12" maxlength="2" min="1" name="month" placeholder="mm" step="1" tabindex="0" type="number">
+            <p id="modal-slash">/</p>
+            <input aria-label="day 2 digit" id="modal-event-day" max="31" maxlength="2" min="1" name="day" placeholder="dd" step="1" tabindex="0" type="number">
+          </span>
+
+          <span class="modal-span">
+            <p id="modal-time-text" tabindex="0">start:</p>
+            <input aria-label="start hour" id="modal-event-start-hour" max="12" maxlength="2" min="1" name="startHour" placeholder="h" step="1" tabindex="0" type="number">
+            <input aria-label="start minute" id="modal-event-start-minute" max="59" maxlength="2" min="0" name="startMinute" placeholder="m" step="1" tabindex="0" type="number">
+            <select aria-label="start AM or PM?" id="start-event-am-or-pm" name="startAMorPM" role="listbox">
+              <option aria-hidden="false" aria-label="am" role="option" value="am">am</option>
+              <option aria-hidden="false" aria-label="pm" role="option" value="pm">pm</option>
+            </select>
+          </span>
+
+          <span class="modal-span">
+            <p id="modal-time-text" tabindex="0">end:</p>
+            <input aria-label="end hour" id="modal-event-end-hour" max="12" maxlength="2" min="1" name="endHour" placeholder="h" step="1" tabindex="0" type="number">
+            <input aria-label="end minute" id="modal-event-end-minute" max="59" maxlength="2" min="0" name="endMinute" placeholder="m" step="1" tabindex="0" type="number">
+            <select aria-label="end AM or PM?" id="end-event-am-or-pm" name="endAMorPM" role="listbox">
+              <option aria-hidden="false" aria-label="am" role="option" value="am">am</option>
+              <option aria-hidden="false" aria-label="pm" role="option" value="pm">pm</option>
+            </select>
+          </span>
+
+          <span id="modal-date-tip" class="modal-span" aria-live="polite"></span>
+          <input aria-label="universityname" id="modal-university" maxlength="100" name="universityname" placeholder="university name" tabindex="0" type="text" onpaste="return false" required><br>
+          <input aria-label="location" id="modal-event-location" maxlength="100" name="location" placeholder="location" tabindex="0" type="text" onpaste="return false" required><br>
+          <textarea aria-label="description" id="modal-event-description" maxlength="500" name="description" placeholder="description" rows="3" tabindex="0" onpaste="return false"></textarea><br>
+          
+          <div id="button-holder">
+            <input  type="submit" >
+          </div> 
+          </div>
+        <form>
+      </div>
+      <div aria-label="post submitted" id="modal-submitted" tabindex="0">
+        <h1 id="modal-submitted-title" tabindex="0"> Post Submitted! </h1>
+        <h4 id="modal-submitted-subtitle" tabindex="0"></h4>
+      </div>
+    </div>
+
+
+  </body>
+</html>

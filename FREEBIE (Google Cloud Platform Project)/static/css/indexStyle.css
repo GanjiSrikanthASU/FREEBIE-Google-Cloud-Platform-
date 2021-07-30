@@ -1,0 +1,288 @@
+#main-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 10vh 5%;
+  }
+  
+  /*
+   * Title + subtitle
+   */
+  
+  #title-slogan {
+    color: var(--dark-green);
+    font-size: 4rem;
+    margin: 0;
+  }
+  
+  .subtitle {
+    font-size: 1.2rem;
+    margin: 2rem 0;
+  }
+  
+  #slogan {
+    flex: 0 1 30rem;
+    margin: 3rem 3rem 0 3rem;
+  }
+  
+  #slogan-container {
+    display: flex;
+    flex-wrap: no-wrap;
+  }
+  
+  #slogan-emoji-container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+  /*
+   * Colleges dropdown
+   */
+  
+  #colleges-datalist {
+    margin: 0;
+  }
+  
+  #colleges-input {
+    background: #dddbdb;
+    border: 2px solid #dddbdb;
+    border-radius: 5px;
+    box-sizing: border-box;
+    color: #484848;
+    display: block;
+    font-size: 1rem;
+    padding: 0.8rem 1.3rem;
+    margin: auto;
+    width: 100%;
+  }
+  
+  #colleges-input::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+  
+  #colleges-input:focus {
+    border: 2px solid #858585;
+    outline: none;
+  }
+  
+  #colleges-input::placeholder {
+    color: #484848;
+  }
+  
+  .selectdiv datalist {
+    appearance: none;
+    border: 2px solid #d8d8d8;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    color: #333;
+    font-size: 16px;
+    height: 3rem;
+    margin: 5px 0;
+    padding: 0 24px;
+  }
+  
+  .selectdiv datalist:focus {
+    border: 2px solid #ababab;
+    outline: none;
+  }
+  
+  /* logins */
+  .button {
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }
+  
+  .button1 {background-color: #008CBA;} /* Green */
+  .button2 {background-color: #008CBA;} /* Blue */
+  
+  /*
+   * Map preview
+   */
+  
+  #map-preview {
+    background-color: white;
+    border: #9d5a5a solid 1px;
+    border-radius: 4px;
+    flex: 0 1 30rem;
+    margin: 3rem;
+    padding: 2rem 2rem 0 2rem;
+    width: 100%;
+  }
+  
+  #map {
+    background: var(--grey);
+    height: 20rem;
+    min-width: 100px;
+    width: 100%;
+  }
+  
+  #map-info-container {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    width: 100%;
+  }
+  
+  #map-error {
+    color: #797979;
+    margin: 0 auto;
+    text-align: center;
+    width: 100%;
+  }
+  
+  #map-text {
+    color: #525252;
+    font-family: 'Indie Flower', cursive;
+    font-size: 1.3rem;
+    margin: 2rem 0;
+    text-align: center;
+  }
+  
+  /*
+   * Food emojis
+   */
+  
+  #emoji-container {
+    height: 10rem;
+    text-align: center;
+    width: 10rem;
+  }
+  
+  .emoji {
+    height: 6rem;
+    position: relative;
+  }
+  
+  #boba-emoji {
+    right: 4rem;
+  }
+  
+  #burger-emoji {
+    bottom: 3rem;
+    left: 3rem;
+  }
+  
+  #pizza-emoji {
+    bottom: 4rem;
+    right: 2.5rem;
+  }
+  
+  @media screen and (max-width: 678px) {
+    #main-container {
+      margin: 5vh 5%;
+    }
+  
+    #title-slogan {
+      font-size: 3rem;
+    }
+  
+    #slogan {
+      margin: 1.5rem;
+    }
+  
+    .subtitle {
+      font-size: 1.1rem;
+      margin: 2rem 0;
+    }
+  
+    #map-preview {
+      margin: 1.5rem;
+      padding: 1.5rem 1.5rem 0 1.5rem;
+    }
+  
+    .selectdiv::after {
+      font-size: 15px;
+      top: 15px;
+    }
+  
+    .selectdiv select {
+      font-size: 14px;
+    }
+  
+    .emoji {
+      height: 4rem;
+    }
+  
+    #boba-emoji {
+      right: 0;
+    }
+  
+    #burger-emoji {
+      bottom: 1rem;
+      left: 2rem;
+    }
+  
+    #pizza-emoji {
+      bottom: 2rem;
+      right: 0;
+    }
+  }
+  
+  @media screen and (max-width: 400px) {
+    .selectdiv select {
+      font-size: 12px;
+    }
+  
+    #title-slogan {
+      font-size: 2.5rem;
+      width: 12rem;
+    }
+  
+    #emoji-container {
+      height: 7rem;
+      width: 5rem;
+    }
+  
+    .emoji {
+      height: 3rem;
+    }
+  
+    #colleges-input {
+      font-size: 0.9rem;
+    }
+  
+    #map-text {
+      font-size: 1rem;
+      margin: 1.5rem 0;
+    }
+  }
+  
+  @media screen and (min-width: 1800px) {
+    #main-container {
+      margin: 10vh 2.5%;
+    }
+  
+    #map-preview {
+      flex: 0 1 40rem;
+    }
+  
+    #slogan {
+      flex: 0 1 40rem;
+    }
+  
+    #title-slogan {
+      font-size: 6rem;
+      line-height: 6rem;
+    }
+  
+    .subtitle {
+      font-size: 1.4rem;
+    }
+  
+    .emoji {
+      height: 7rem;
+    }
+  
+    #map {
+      height: 25rem;
+    }
+  }
+  

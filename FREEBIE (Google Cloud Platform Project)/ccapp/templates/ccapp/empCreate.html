@@ -1,0 +1,73 @@
+{% load static %}
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8">
+    <title>Sign Up Form</title>
+    <link rel="shortcut icon" href="{% static 'Freebie.png' %}">
+    <link rel="stylesheet" href="{% static 'css/createAccountStyle.css' %}">
+    
+    
+</head>
+<body >
+    
+    <div class="container">
+        <form  method = "POST" action = "../employeecreate/" >
+            {% csrf_token%}
+             <h1 class="form__title">Create Account</h1>
+            <div class="form_message form_message--error"></div>
+            <div class="form__input-group">
+                <input type="text" id="signupUsername" class="form__input" name = "first_name" autofocus placeholder="First Name">
+                <div class="form__input-error-message"></div>
+            </div>
+
+            <div class="form__input-group">
+                <input type="text" id="signupUsername1" class="form__input" name = "last_name" autofocus placeholder="Last Name">
+            <div class="form__input-error-message"></div>
+            </div>
+
+            <div class="form__input-group">
+                <input type="text" id="signupUsername2" class="form__input" name= "username" autofocus placeholder="Username">
+            <div class="form__input-error-message"></div>
+            </div>
+            
+            <div class="form__input-group">
+                <input type="email" id="email" class="form__input" name= "email" autofocus placeholder="Email">
+            <div class="form__input-error-message"></div>
+            </div>
+
+            <div class="form__input-group">
+                <input type="text" id="universityname" class="form__input" name= "universityname" autofocus placeholder="University Name">
+            <div class="form__input-error-message"></div>
+            </div>
+
+            <div class="form__input-group">
+                <input type="password" id="newpassword" class="form__input" name= "password1" autofocus placeholder="Password">
+            <div class="form__input-error-message"></div>
+            </div>
+
+            <div class="form__input-group">
+                <input type="password" id="newpassword1" class="form__input"name = "password2" autofocus placeholder="Confirm Password">
+            <div class="form__input-error-message"></div>
+            </div> 
+            <div class="form__input-group">
+                <input type="submit" >
+            <div class="form__input-error-message"></div>
+            </div>
+        </form> 
+        <br>
+        <form class="form" id="empCreate1" action="../employee/">
+            <button class="form__button" type ="submit">Already have an account? Sign in</button>
+        </form>
+        <br>
+        <form class="form" id="empCreate2" action="/">
+            <button class="form__button" type ="submit">Back to Main Menu</button>
+        </form>
+
+        <div>
+            {% for message in messages %}
+            <h3>{{message}}</h3>
+            {% endfor %}
+        </div>
+    </div>
+</body>
